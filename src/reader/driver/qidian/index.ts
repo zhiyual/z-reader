@@ -22,15 +22,19 @@ class ReaderDriver implements ReaderDriverImplements {
             const author = $(elem).find('.book-author').text().trim();
             const bookIdMatch = $(elem).find('.book-layout').attr().href.match('book/(\\d+).');
             if (bookIdMatch) {
+              const _tnode = new TreeNode(
+                Object.assign({}, defaultTreeNode, {
+                  type: '.qidian',
+                  name: `${title} - ${author}`,
+                  isDirectory: true,
+                  path: JSON.stringify({ bookId: bookIdMatch[1] })
+                })
+              );
+
+              _tnode.contextValue = "book-root";
+
               result.push(
-                new TreeNode(
-                  Object.assign({}, defaultTreeNode, {
-                    type: '.qidian',
-                    name: `${title} - ${author}`,
-                    isDirectory: true,
-                    path: JSON.stringify({ bookId: bookIdMatch[1] })
-                  })
-                )
+                _tnode
               );
             }
           });

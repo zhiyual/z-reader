@@ -21,7 +21,8 @@ import {
   progressUpdate,
   nextChapter,
   lastChapter,
-  reLoadCookie
+  reLoadCookie,
+  downloadBook
 } from './commands';
 
 export async function activate(context: ExtensionContext): Promise<void> {
@@ -67,6 +68,8 @@ export async function activate(context: ExtensionContext): Promise<void> {
     commands.registerCommand(Commands.cancelCollect, cancelCollect),
     // 清空收藏
     commands.registerCommand(Commands.clearCollect, clearCollect),
+    // 下载
+    commands.registerCommand(Commands.downloadTxt, downloadBook),
     // 设置
     commands.registerCommand(Commands.setOnlineSite, async () => {
       const onlineSite = workspaceConfiguration().get('onlineSite');

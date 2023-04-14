@@ -41,4 +41,6 @@ export class TreeNode {
       arguments: [this]
     };
   }
+
+  public contextValue: string | undefined;
 }

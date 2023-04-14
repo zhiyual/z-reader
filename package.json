@@ -11,7 +11,7 @@
   ],
   "publisher": "aooiu",
   "license": "MIT",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "icon": "static/images/icon-green.png",
   "qna": "https://github.com/aooiuu/z-reader.git/issues",
   "bugs": {
@@ -85,6 +85,11 @@
       {
         "command": "z-reader.command.clearCollect",
         "title": "清空收藏",
+        "category": "z-reader"
+      },
+      {
+        "command": "z-reader.command.downloadTxt",
+        "title": "下载到本地",
         "category": "z-reader"
       }
     ],
@@ -173,6 +178,10 @@
           "command": "z-reader.command.cancelCollect",
           "when": "view == z-reader-menu && zreader.panel == collect",
           "group": "custom-item@4"
+        },
+        {
+          "command": "z-reader.command.downloadTxt",
+          "when": "view == z-reader-menu && viewItem == book-root"
         }
       ]
     },

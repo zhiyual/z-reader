@@ -26,8 +26,8 @@ class TreeDataProvider implements vscode.TreeDataProvider<TreeNode>, vscode.Disp
       tooltip: element.name,
       iconPath: '',
       collapsibleState: element.isDirectory ? vscode.TreeItemCollapsibleState.Collapsed : vscode.TreeItemCollapsibleState.None,
-      command: !element.isDirectory ? element.previewCommand : undefined
-      // contextValue
+      command: !element.isDirectory ? element.previewCommand : undefined,
+      contextValue: element.contextValue || ""
     };
   }
 

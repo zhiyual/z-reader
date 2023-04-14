@@ -12,6 +12,7 @@ import * as config from '../utils/config';
 import { Notification } from '../utils/notification';
 import request from '../utils/request';
 import * as path from 'path';
+import DownLoadApi from '../explorer/downloadApi';
 
 const showNotification = function (tip?: string, timer?: number) {
   const notification = new Notification(tip);
@@ -88,6 +89,10 @@ export const collectBook = async function (treeNode: TreeNode) {
     console.log(error);
   }
 };
+
+export const downloadBook = async function(treeNode: TreeNode) {
+  DownLoadApi.downloadBook(treeNode);
+}
 
 export const cancelCollect = async function (treeNode: TreeNode) {
   const list = await config.getConfig('__collect_list', []);

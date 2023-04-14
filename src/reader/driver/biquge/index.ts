@@ -22,15 +22,19 @@ class ReaderDriver implements ReaderDriverImplements {
         const path = $(elem).find('td:eq(0)').find('a').attr('href')
         // console.log('path', $(elem).find('td:eq(0)').find('a').attr('href'));
         if (title && author) {
+          const _tnode: TreeNode = new TreeNode(
+            Object.assign({}, defaultTreeNode, {
+              type: '.biquge',
+              name: `${title} - ${author}`,
+              isDirectory: true,
+              path
+            })
+          )
+
+          _tnode.contextValue = "book-root";
+
           result.push(
-            new TreeNode(
-              Object.assign({}, defaultTreeNode, {
-                type: '.biquge',
-                name: `${title} - ${author}`,
-                isDirectory: true,
-                path
-              })
-            )
+            _tnode
           );
         }
       });
