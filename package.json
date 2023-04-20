@@ -11,7 +11,7 @@
   ],
   "publisher": "aooiu",
   "license": "MIT",
-  "version": "1.1.8",
+  "version": "1.2.0",
   "icon": "static/images/icon-green.png",
   "qna": "https://github.com/aooiuu/z-reader.git/issues",
   "bugs": {
@@ -241,12 +241,17 @@
             }
           },
           "markdownDescription": "设置cookie, 插件在请求时会根据配置携带cookie"
+        },
+        "z-reader.downloadThreads": {
+          "type": "number",
+          "default": 10,
+          "markdownDescription": "允许同时下载的章节数"
         }
       }
     }
   },
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
   "scripts": {
     "build": "vsce package",
